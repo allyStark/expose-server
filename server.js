@@ -14,7 +14,7 @@ app.use((req, res, next) => {
     let log = `${now}: ${req.method} ${req.url}`
 
     console.log(log);
-    fs.appendFile('server.log', log + '\n', (err) => {
+    fs.appendFile('./logs/server.log', log + '\n', (err) => {
         console.log('Unable to append to server.log');
     });
     next();
@@ -36,6 +36,14 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/api', (req, res) => {
+    res.send({
+        message: 'Hello world!',
+        otherMessage: "I'm here"
+    });
+});
+
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`)
 });
+module.exports.app = app;
