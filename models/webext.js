@@ -9,11 +9,11 @@ let WebExt = mongoose.model('WebExt', {
     },
     version: {
         type: Number,
-        required: true
+        // required: true
     },
     repoURL: {
         type: String,
-        required: true
+        // required: true
     }
 
 });

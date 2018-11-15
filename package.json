@@ -12,7 +12,9 @@
   "description": "",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "exports": "0.0.1",
     "express": "^4.16.4",
+    "express-brute": "^1.0.1",
     "hbs": "^4.0.1",
     "mongoose": "^5.3.11"
   },
