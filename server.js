@@ -42,9 +42,9 @@ app.use(logger);
     Routes
 */
 app.use('/', main);
-app.use('/files', files);
-app.use('/compilebox', compilebox);
-app.use('/api', api);
+app.use('./routes/files', files);
+app.use('./routes/compilebox', compilebox);
+app.use('./routes/api', api);
 
 /*
     Listen
