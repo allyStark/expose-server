@@ -6,8 +6,10 @@ module.exports = (req, res, next) => {
 
     console.log(log);
     fs.appendFile('./logs/server.log', log + '\n', (err) => {
-        console.log(new Error(err));
-        console.log('Unable to append to server.log');
+        if (err) {
+            console.log(new Error(err));
+            console.log('Unable to append to server.log');
+        }
     });
     next();
 };
