@@ -17,7 +17,7 @@ function random(size) {
 
 router.post('/compile', bruteforce.prevent, function(req, res)
 {
-    console.log(body);
+    //console.log(body);
     var language = req.body.language;
     var code = req.body.code;
     var stdin = req.body.stdin;
