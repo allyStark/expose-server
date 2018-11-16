@@ -2,7 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 // Models
-let { mongoose } = require('./db/mongoose');
+//let { mongoose } = require('./db/mongoose');
 let { Session } = require('./models/session');
 let { WebExt } = require('./models/webext');
 // Routes
@@ -18,7 +18,7 @@ const port = process.env.PORT || 3000;
 
 let app = express();
 
-/* 
+/*
     View Engine
 */
 hbs.registerPartials(__dirname + '/views/partials')
@@ -27,18 +27,18 @@ hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear()
 });
 
-/* 
+/*
     Middleware
 */
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
-/* 
+/*
     Custom Middleware
 */
 app.use(logger);
 
-/* 
+/*
     Routes
 */
 app.use('/', main);
@@ -46,7 +46,7 @@ app.use('/files', files);
 app.use('/compilebox', compilebox);
 app.use('/api', api);
 
-/* 
+/*
     Listen
 */
 app.listen(port, () => {
