@@ -2,8 +2,8 @@ const request = require('supertest');
 const expect = require('expect');
 const rewire = require('rewire');
 
-const {app} = rewire('./../server');
-const {WebExt} = require('./../models/webext');
+const { app } = rewire('./../server');
+const { WebExt } = require('./../models/webext');
 
 beforeEach((done) => {
     WebExt.remove({}).then(() => done());
