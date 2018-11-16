@@ -28,6 +28,17 @@ router.post('/compile', bruteforce.prevent, function(req, res)
     var timeout_value=20;//Timeout Value, In Seconds
 
     //details of this are present in DockerSandbox.js
+    console.log("timeout_value: " + timeout_value)
+    console.log('path: ' + path)
+    console.log('folder: ' + folder)
+    console.log('vm_name: ' + vm_name)
+    console.log('compiler_name: ')
+    console.log('file_name: ')
+    console.log('code: ');
+    console.log('output_command: ');
+    console.log('languageName: ');
+    console.log('e_arguments: ');
+    console.log('stdin_data: ');
     var sandboxType = new sandBox(timeout_value,path,folder,vm_name,arr.compilerArray[language][0],arr.compilerArray[language][1],code,arr.compilerArray[language][2],arr.compilerArray[language][3],arr.compilerArray[language][4],stdin);
 
 
