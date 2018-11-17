@@ -13,3 +13,5 @@ RUN apt-get update
 RUN apt-get install -y npm
 
 RUN npm install -g underscore request express jade shelljs passport http sys jquery lodash async mocha moment connect validator restify ejs ws co when helmet wrench brain mustache should backbone forever  debug && export NODE_PATH=/usr/local/lib/node_modules/
+
+RUN apt-get install -y bc
