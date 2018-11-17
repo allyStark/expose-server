@@ -40,14 +40,17 @@ router.post('/compile', bruteforce.prevent, function(req, res)
     console.log('languageName: ' + arr.compilerArray[language][3]);
     console.log('e_arguments: ' + stdin);
     console.log('stdin_data: ' + stdin);
-    var sandboxType = new sandBox(timeout_value,path,folder,vm_name,arr.compilerArray[language][0],arr.compilerArray[language][1],code,arr.compilerArray[language][2],arr.compilerArray[language][3],arr.compilerArray[language][4],stdin);
+
+    webextpath = path + '/expose';
+
+    var sandboxType = new sandBox(timeout_value,path,folder,vm_name,arr.compilerArray[language][0],arr.compilerArray[language][1],code,webextpath,arr.compilerArray[language][2],arr.compilerArray[language][3],arr.compilerArray[language][4],stdin);
 
 
     //data will contain the output of the compiled/interpreted code
     //the result maybe normal program output, list of error messages or a Timeout error
     sandboxType.run(function(data,exec_time,err)
     {
-        
+
         //console.log("Data: received: "+ data)
     	res.send({output:data, langid: language,code:code, errors:err, time:exec_time});
     });
