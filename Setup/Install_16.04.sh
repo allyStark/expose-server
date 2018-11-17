@@ -21,8 +21,9 @@ echo "NodeJS setup Complete"
 ###########################
 chmod 777 ../API/DockerTimeout.sh
 chmod 777 ../API/Payload/script.sh
-chmod 777 ../API/Payload/javaRunner.sh
 chmod 777 UpdateDocker.sh
+
+RUN apt-get install -y bc
 
 systemctl restart docker
 ./UpdateDocker.sh
