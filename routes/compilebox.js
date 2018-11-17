@@ -41,7 +41,9 @@ router.post('/compile', bruteforce.prevent, function(req, res)
     console.log('e_arguments: ' + stdin);
     console.log('stdin_data: ' + stdin);
 
+    // TODO change from hard coded path
     webextpath = path + '/expose';
+    console.log('webextpath: ' + webextpath);
 
     var sandboxType = new sandBox(timeout_value,path,folder,vm_name,arr.compilerArray[language][0],arr.compilerArray[language][1],code,webextpath,arr.compilerArray[language][2],arr.compilerArray[language][3],arr.compilerArray[language][4],stdin);
 
