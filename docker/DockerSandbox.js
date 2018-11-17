@@ -69,7 +69,7 @@ DockerSandbox.prototype.prepare = function(success)
     var exec = require('child_process').exec;
     var fs = require('fs');
     var sandbox = this;
-
+    debugger;
     exec("mkdir "+ this.path+this.folder + " && cp "+this.path+"/Payload/* "+this.path+this.folder+"&& chmod 777 "+ this.path+this.folder,function(st)
         {
             fs.writeFile(sandbox.path + sandbox.folder+"/" + sandbox.file_name, sandbox.code,function(err)
