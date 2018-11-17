@@ -190,14 +190,14 @@ DockerSandbox.prototype.execute = function(success)
             	fs.readFile(sandbox.path + sandbox.folder + '/logfile.txt', 'utf8', function(err, data){
             		if (!data) data = "";
                     data += "\nExecution Timed Out";
-                    console.log("Timed Out: "+sandbox.folder+" "+sandbox.langName)
+                    console.log("Timed Out: " + sandbox.folder + " " + sandbox.langName)
                     fs.readFile(sandbox.path + sandbox.folder + '/errors', 'utf8', function(err2, data2)
 	                {
-	                	if(!data2) data2=""
+	                	if(!data2) data2 = ""
 
 				var lines = data.toString().split('*---*')
-				data=lines[0]
-				var time=lines[1]
+				data = lines[0]
+				var time = lines[1]
 
 				console.log("Time: ")
 				console.log(time)
@@ -210,9 +210,9 @@ DockerSandbox.prototype.execute = function(success)
 
 
             //now remove the temporary directory
-            console.log("ATTEMPTING TO REMOVE: " + sandbox.folder);
+            console.log("ATTEMPTING TO REMOVE: " + sandbox.path + sandbox.folder);
             console.log("------------------------------")
-            exec("rm -r " + sandbox.folder);
+            exec("rm -r " + sandbox.path + sandbox.folder);
 
 
             clearInterval(intid);
