@@ -210,6 +210,8 @@ DockerSandbox.prototype.execute = function(success)
             }
 
 
+            //TODO zip and send back dist folder
+
             //now remove the temporary directory
             console.log("ATTEMPTING TO REMOVE: " + sandbox.path + sandbox.folder);
             console.log("------------------------------")

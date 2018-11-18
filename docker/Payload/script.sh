@@ -46,19 +46,19 @@ START=$(date +%s.%2N)
 #Branch 1
 if [ "$output" = "" ]; then
     cd /usercode/expose
-    echo $PWD
+    npm config set strict-ssl false
     npm install
-    $compiler /usercode/$file -< $"/usercode/inputFile" #| tee /usercode/output.txt
+    npm run-script build
+    node -v
+
+    #$compiler /usercode/$file -< $"/usercode/inputFile" #| tee /usercode/output.txt
 #Branch 2
 else
 	#In case of compile errors, redirect them to a file
-        cd /usercode/expose
-        echo $PWD
-        npm install
-        $compiler /usercode/$file $addtionalArg #&> /usercode/errors.txt
+        $compiler /usercode/$file $addtionalArg &> /usercode/errors.txt
 	#Branch 2a
 	if [ $? -eq 0 ];	then
-		$output -< $"/usercode/inputFile" #| tee /usercode/output.txt
+		$output -< $"/usercode/inputFile" | tee /usercode/output.txt
 	#Branch 2b
 	else
 	    echo "Compilation Failed"
