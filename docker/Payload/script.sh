@@ -46,11 +46,8 @@ START=$(date +%s.%2N)
 #Branch 1
 if [ "$output" = "" ]; then
     cd /usercode/expose
-    npm config set strict-ssl false
     npm install
     npm run-script build
-    node -v
-
     #$compiler /usercode/$file -< $"/usercode/inputFile" #| tee /usercode/output.txt
 #Branch 2
 else
