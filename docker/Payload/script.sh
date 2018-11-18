@@ -46,12 +46,14 @@ START=$(date +%s.%2N)
 #Branch 1
 if [ "$output" = "" ]; then
     cd /usercode/expose
+    echo $PWD
     npm install
     $compiler /usercode/$file -< $"/usercode/inputFile" #| tee /usercode/output.txt
 #Branch 2
 else
 	#In case of compile errors, redirect them to a file
         cd /usercode/expose
+        echo $PWD
         npm install
         $compiler /usercode/$file $addtionalArg #&> /usercode/errors.txt
 	#Branch 2a

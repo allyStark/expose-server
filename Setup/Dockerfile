@@ -10,8 +10,14 @@ MAINTAINER ASAD MEMON, OSMAN ALI
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
 RUN apt-get update
 
-RUN apt-get install -y npm
+RUN apt-get install -y curl
+RUN curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
 
-RUN npm install -g underscore request express jade shelljs passport http sys jquery lodash async mocha moment connect validator restify ejs ws co when helmet wrench brain mustache should backbone forever  debug && export NODE_PATH=/usr/local/lib/node_modules/
+RUN echo "deb https://deb.nodesource.com/node_11.x xenial main" | tee /etc/apt/sources.list.d/nodesource.list
+RUN echo "deb-src https://deb.nodesource.com/node_11.x xenial main" | tee -a /etc/apt/sources.list.d/nodesource.list
+
+RUN apt-get install -y apt-transport-https
+RUN apt-get update
+RUN apt-get install -y nodejs
 
 RUN apt-get install -y bc
