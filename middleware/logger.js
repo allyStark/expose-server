@@ -1,15 +1,19 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
     let now = new Date().toString();
     let log = `${now}: ${req.method} ${req.url}`
+    let dir = './logs'
 
     console.log(log);
-    fs.appendFile('./logs/server.log', log + '\n', (err) => {
-        if (err) {
-            console.log(new Error(err));
-            console.log('Unable to append to server.log');
-        }
-    });
+
+    try {
+        await fs.ensureDir(dir);
+        fs.appendFile(`${dir}/server.log`, `${log}\n`);
+    } catch (err) {
+        console.log(new Error(err));
+        console.log('Unable to append to server.log');
+    }
+    
     next();
 };
