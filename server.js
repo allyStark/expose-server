@@ -3,7 +3,6 @@ const hbs = require('hbs');
 const fs = require('fs');
 
 // Models
-//let { mongoose } = require('./db/mongoose');
 let { Session } = require('./models/session');
 let { WebExt } = require('./models/webext');
 // Routes
@@ -15,7 +14,7 @@ const files = require('./routes/files');
 const logger = require('./middleware/logger');
 var bodyParser = require('body-parser');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 let app = express();
 

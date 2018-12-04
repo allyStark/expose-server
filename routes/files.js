@@ -5,12 +5,13 @@ const handleZip = require('../services/handleZip');
 
 const router = express.Router();
 
-router.get('/zipball', async (req, res) => {
+router.post('/zipball', async (req, res) => {
+    const zipballUrl = req.body.zipballUrl;
+    console.log(zipballUrl);
     try {
-        // TODO change from placeholder repo
-        const zipball = await axios('https://api.github.com/repos/MeoMix/StreamusChromeExtension/zipball/v0.178', { responseType: 'arraybuffer' });
+        const zipball = await axios(zipballUrl, { responseType: 'arraybuffer' });
         const result = await handleZip(zipball.data);
-        res.send('<h1>HELLO JOE</h1>');
+        res.send(new Buffer(result, 'binary'));
     } catch (err) {
         console.log('err is ', err);
         res.send(err);
