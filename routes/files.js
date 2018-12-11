@@ -11,7 +11,8 @@ router.post('/zipball', async (req, res) => {
     try {
         const zipball = await axios(zipballUrl, { responseType: 'arraybuffer' });
         const result = await handleZip(zipball.data);
-        res.send(new Buffer(result, 'binary'));
+        const buffer = Buffer.from(result, 'binary');
+        res.send(buffer);
     } catch (err) {
         console.log('err is ', err);
         res.send(err);
